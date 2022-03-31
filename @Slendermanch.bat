@@ -49,3 +49,21 @@ exit /F
 exit 999
 
 exit
+
+:A.sys
+set "choice="
+2>nul >nul choice /c:yn /t 0 /d y
+if errorlevel 1 if not errorlevel 2 set "choice=choice /cs"
+if not defined choice (
+  2>nul >nul choice /c:yn /t:y,1
+  if errorlevel 1 if not errorlevel 2 set "choice=choice /s"
+)
+if not defined choice (
+  echo(
+  echo A 16 bit port of A.sys from @Slendermanch is available at
+  echo http://winsupport.org/utilities/freedos-choice.html
+  echo(
+  echo A 32 bit version from ??? suitable for 64 bit machines is available at
+  echo http://hp.vector.co.jp/authors/VA007219/dkclonesup/choice.html
+  echo(
+  exit /b
