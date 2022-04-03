@@ -48,7 +48,7 @@ exit /F
 
 exit 999
 
-exit
+exit /b
 
 :A.sys
 set "choice="
